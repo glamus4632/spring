@@ -1,0 +1,39 @@
+﻿컨트롤러
+@RequestMapping(value="/signup/dup")
+@ResponseBody//응답할때 정보를 전달
+public Map<Object, Object>idcheck(@RequestBody String id){//요청을 요구한 쪽에 데이터를 전달
+	Map<Object, Object> map = new HashMap<Object, Object>();
+	boolean dup = accountService.isDuplicated(id);
+	map.put("dup",dup);
+	return map;
+}
+
+서비스Imp
+@Override
+public boolean isDuplicated(String id) {
+	if(accountDao.getAccount(id)!=null)//이미 있으면 중복이니까 참
+		return true;
+	return false;//없으면 거짓 반환
+}
+
+회원가입.jsp
+var dup;
+    $('#dup').click( function() {
+        var id = "";
+        id = $('#id').val();
+        $.ajax({
+        	async: true, //true면 동기 false면 비동기
+        	type: 'POST',
+        	data: id,//지금은 문자열 {id,pw}처럼 배열로 쓸 수도 있다
+            url: 'http://localhost:8080/springtest/signup/dup',
+            dataType: 'json',
+            contentType:"application/json; charset=UTF-8",
+            success: function(data) {
+                if(data.dup){
+                	alert("이미 사용중인 아이디입니다.");
+                }else{
+                	alert("사용가능한 아이디입니다.");
+                }
+            }
+        });
+    })

@@ -36,4 +36,11 @@ public class AccountServiceImp implements AccountService{
 		return true;//null이면 성공
 	}
 
+	@Override
+	public boolean isDuplicated(String id) {
+		if(accountDao.getAccount(id)!=null)//이미 있으면 중복이니까 참
+			return true;
+		return false;//없으면 거짓 반환
+	}
+
 }
