@@ -11,7 +11,7 @@
 <div class="container">
 
 </div>
-<form action="<%= request.getContextPath() %>/signup" method="post">
+<form action="<%= request.getContextPath() %>/signup" method="post"  id="form">
 ID: <input type="text" name="id" id="id">
 	<button id="dup" type="button">중복 체크</button><br>
 PW: <input type="password" name="pw"><br>
@@ -20,10 +20,10 @@ Gender: <input type="radio" id="male" value="male" name="gender" checked>
 		<label for="male">남성</label>
 		<input type="radio" id="female" value="female" name="gender">
 		<label for="female">여성</label><br>
-<button type="submit">가입</button>
+<button type="button" id="btnOk">가입</button>
 
 <script>
-    var dup;
+    var dup=0;//중복검사 후 활용하기 위한 변수 -1=중복안됨, 0=검사안함, 1=중복
     $('#dup').click( function() {
         var id = "";
         id = $('#id').val();
@@ -36,13 +36,32 @@ Gender: <input type="radio" id="male" value="male" name="gender" checked>
             contentType:"application/json; charset=UTF-8",
             success: function(data) {
                 if(data.dup){
+                	dup=1;
                 	alert("이미 사용중인 아이디입니다.");
                 }else{
+                	dup=-1;
                 	alert("사용가능한 아이디입니다.");
                 }
             }
         });
-    })
+        
+    });
+    $('#btnOk').click(function(){
+    	if(dup == 0){
+    		alert("아이디 중복체크를 하세요.");
+    		return false;//submit하지 않기 위한 false
+    	}
+    	else if(dup == 1){
+    		alert("이미 사용중인 아이디입니다.");
+    		return false;
+    	}
+    	//else if($('#id').val() != "" && dup > 0 ){
+    	//	alert("이미 사용중인 아이디입니다.");
+    	//	return false;
+    	//}
+    	return true;
+    });
+    	
 </script>
 </form>
 </body>
