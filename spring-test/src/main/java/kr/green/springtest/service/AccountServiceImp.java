@@ -21,7 +21,8 @@ public class AccountServiceImp implements AccountService{
 		//AccountVo id = loginInfo;
 		//AccountVo user = accountDao.getAccount(id.getId());
 		AccountVo user = accountDao.getAccount(loginInfo.getId());//비밀번호는 암호화 되어 있으니까 필요가 없다.
-		if(passwordEncoder.matches(loginInfo.getPw(), user.getPw())) return user;
+		if(user != null && passwordEncoder.matches(loginInfo.getPw(), user.getPw()))
+			return user;
 		return null;
 	}
 
