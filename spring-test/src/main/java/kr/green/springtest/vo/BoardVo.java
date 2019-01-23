@@ -8,7 +8,8 @@ public class BoardVo {
 	private String content;
 	private String writer;
 	private String state;
-	private Date registered_date;
+	private Date registerd_date;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -39,15 +40,15 @@ public class BoardVo {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public Date getRegistered_date() {
-		return registered_date;
+	public Date getRegisterd_date() {
+		return registerd_date;
 	}
-	public void setRegistered_date(Date registered_date) {
-		this.registered_date = registered_date;
+	public void setRegisterd_date(Date registerd_date) {
+		this.registerd_date = registerd_date;
 	}
 	@Override
 	public String toString() {
 		return "BoardVo [id=" + id + ", title=" + title + ", content=" + content + ", writer=" + writer + ", state="
-				+ state + ", registered_date=" + registered_date + "]";
+				+ state + ", registerd_date=" + registerd_date + "]";
 	}
 }

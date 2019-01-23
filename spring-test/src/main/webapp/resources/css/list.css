@@ -1,0 +1,20 @@
+@charset "utf-8";
+*{
+	margin 0;
+	padding 0;
+}
+.board-text{
+	text-align: center;
+	font-weight: bold;
+}
+.board-number, .board-writer, .board-date, .board-title{
+	text-align: center;
+	font-size: 12px;
+}
+.board-row{
+
+}
+.table-dark td{
+	height: 5px;
+	padding: 5px;
+}
