@@ -6,4 +6,6 @@ public interface AccountService {
 
 	public AccountVo signIn(AccountVo loginInfo);
 
+	public boolean signUp(AccountVo userInfo);
+
 }

@@ -12,8 +12,6 @@
 <h1>
 	Login!  
 </h1>
-<!-- <P>  The time on the server is ${serverTime}. -->
-<%-- ${serverTime1}처럼 없는 변수를 적으면 에러가 안나고 동작도 안한다 --%>
 
 <form action="<%= request.getContextPath() %>/" method="POST"
   style="<c:if test="${user != null}">display:none;</c:if>">

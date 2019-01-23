@@ -8,5 +8,7 @@ public interface AccountDao {
 
 	public AccountVo getAccount(@Param("id")String id);
 
+	public void setAccount(@Param("user")AccountVo userInfo);
+
 
 }

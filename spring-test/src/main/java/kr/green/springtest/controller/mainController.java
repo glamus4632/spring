@@ -16,7 +16,7 @@ import kr.green.springtest.vo.AccountVo;
 public class mainController {
 	@Autowired
 	AccountService accountService;
-	
+	//로그인 리퀘스트
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homeGet(Model model) {
 		return "home";
@@ -26,6 +26,19 @@ public class mainController {
 		AccountVo user = accountService.signIn(loginInfo);
 		model.addAttribute("user",user);
 		return "redirect:/";
+	}
+	
+	//회원가입 리퀘스트
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String signupGet(Model model) {
+		return "signup";
+	}
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String signupPost(Model model,AccountVo userInfo) {
+		boolean isUser = accountService.signUp(userInfo);//id중복검사를 위해 boolean 타입
+		if(isUser)
+			return "redirect:/";
+		return "redirect:/signup";
 	}
 	
 }
