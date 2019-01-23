@@ -15,7 +15,7 @@ public class AccountServiceImp implements AccountService{
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
 	
-	//회원가입 서비스
+	//로그인 서비스
 	@Override
 	public AccountVo signIn(AccountVo loginInfo) {
 		//AccountVo id = loginInfo;
@@ -25,7 +25,7 @@ public class AccountServiceImp implements AccountService{
 			return user;
 		return null;
 	}
-
+	//회원가입 서비스
 	@Override
 	public boolean signUp(AccountVo userInfo) {
 		if(accountDao.getAccount(userInfo.getId()) != null)
@@ -35,7 +35,7 @@ public class AccountServiceImp implements AccountService{
 		accountDao.setAccount(userInfo);//set 된 비밀번호를 포함한 Vo를 가져옴
 		return true;//null이면 성공
 	}
-
+	//id중복검사 서비스
 	@Override
 	public boolean isDuplicated(String id) {
 		if(accountDao.getAccount(id)!=null)//이미 있으면 중복이니까 참
