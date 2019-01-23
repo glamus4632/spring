@@ -35,7 +35,7 @@ Gender: <input type="radio" id="male" value="male" name="gender" checked>
             dataType: 'json',
             contentType:"application/json; charset=UTF-8",
             success: function(data) {
-                if(data.dup){
+                if(data.dup){//serviceImp에서 중복되면 true를 받았다
                 	dup=1;
                 	alert("이미 사용중인 아이디입니다.");
                 }else{

@@ -49,7 +49,7 @@ public class mainController {
 	@ResponseBody//응답할때 정보를 전달
 	public Map<Object, Object>idcheck(@RequestBody String id){//요청을 요구한 쪽에 데이터를 전달
 		Map<Object, Object> map = new HashMap<Object, Object>();//Map<키, 밸류>
-		boolean dup = accountService.isDuplicated(id);//dup에는 true아니면 false를 가짐
+		boolean dup = accountService.isDuplicated(id);//dup에는 true아니면 false를 가짐 boolean이니까
 		
 		map.put("dup",dup);//앞에 있는 키값은 중복이 불가능하다
 		return map;
