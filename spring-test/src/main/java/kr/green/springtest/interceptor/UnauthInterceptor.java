@@ -19,6 +19,7 @@ public class UnauthInterceptor extends HandlerInterceptorAdapter{
 		//AccountVo user = (AvvountVo)session.getAttribute("user");
 		if(user != null) {
 			response.sendRedirect(request.getContextPath() + "/bbs/list");
+			return false;
 		}
 		return true;
 	}

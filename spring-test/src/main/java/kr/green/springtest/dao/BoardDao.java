@@ -14,6 +14,6 @@ public interface BoardDao {
 
 	public BoardVo getBoard(Integer id);
 
-	public void delBoard(Integer id);
+	public void updateBoard(@Param("board")BoardVo board);
 
 }

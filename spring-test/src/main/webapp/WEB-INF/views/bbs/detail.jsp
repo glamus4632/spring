@@ -32,19 +32,26 @@
 		<button class="btn btn-outline-primary" ">목록</button>
 	</a>
 	<c:if test="${user.id == detail.writer}">
-		<a href="<%= request.getContextPath() %>/bbs/delete?id=${detail.id}">
-			<button class="btn btn-outline-primary" ">삭제</button>
+		<a href="<%= request.getContextPath() %>/bbs/delete?id=${board.id}">
+			<button class="btn btn-outline-primary">삭제</button>
+		</a>
+		<a href="<%= request.getContextPath() %>/bbs/modify?id=${detail.id}">
+			<button class="btn btn-outline-primary">수정</button>
 		</a>
 	</c:if>
 <script>
-function adjustHeight() {
-  var textEle = $('textarea');
-  textEle[0].style.height = 'auto';
-  var textEleHeight = textEle.prop('scrollHeight');
-  textEle.css('height', textEleHeight);
-};
+$(document).ready(function(){
+	function adjustHeight() {
+	  var textEle = $('textarea');
+	  textEle[0].style.height = 'auto';
+	  var textEleHeight = textEle.prop('scrollHeight');
+	  textEle.css('height', textEleHeight);
+	};
 
-adjustHeight();
+	adjustHeight();
+	
+});
+
 </script>
 </body>
 </html>

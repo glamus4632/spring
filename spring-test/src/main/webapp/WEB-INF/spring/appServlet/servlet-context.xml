@@ -36,6 +36,8 @@
 	    <!-- 로그인 안한 인터셉터 -->
 	    <interceptor>
 	        <mapping path="/bbs/register"/><!-- 홈화면으로 -->
+	        <mapping path="/bbs/delete"/>
+	        <mapping path="/bbs/modify"/>
 	        <beans:ref bean="authInterceptor"/>
 	    </interceptor>
 	    <!-- 로그인 한 인터셉터 -->
