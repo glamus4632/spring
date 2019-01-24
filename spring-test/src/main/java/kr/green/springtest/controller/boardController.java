@@ -16,6 +16,7 @@ import kr.green.springtest.vo.BoardVo;
 public class boardController {
 	@Autowired
 	BoardService boardService;
+	
 	//게시판 리스트 리퀘스트
 	@RequestMapping(value="/bbs/list")
 	public String list(Model model) {//감출것이 없어서 따로 get,post를 정하지 않음
@@ -30,8 +31,9 @@ public class boardController {
 		return "bbs/register";
 	}
 	@RequestMapping(value="/bbs/register", method=RequestMethod.POST)
-	public String registerPost(Model model) {//감출것이 없어서 따로 get,post를 정하지 않음
-		return "bbs/register";
+	public String registerPost(BoardVo boardVo) {//감출것이 없어서 따로 get,post를 정하지 않음
+		boardService.registerBoard(boardVo);
+		return "redirect:/bbs/list";
 	}
 	
 }

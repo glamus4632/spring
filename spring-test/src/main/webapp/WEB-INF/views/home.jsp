@@ -21,7 +21,7 @@
 </form>
 <a href="<%= request.getContextPath() %>/signup"
 style="<c:if test="${user != null}">display:none;</c:if>">회원가입 페이지로 이동</a><br>
-
+<a href="<%= request.getContextPath() %>/bbs/list"><button>게시판</button></a>
 <script>
 $(document).ready(function(){
 	var login = ${login};//어트리뷰트로 온거랑 변수 이름이랑 다르게 하자!
