@@ -24,6 +24,7 @@ Gender: <input type="radio" id="male" value="male" name="gender" checked>
 
 <script>
     var dup=0;//중복검사 후 활용하기 위한 변수 -1=중복안됨, 0=검사안함, 1=중복
+    var checkId;//중복검사 후 id를 저장하기 위한 변수
     $('#dup').click( function() {
         var id = "";
         id = $('#id').val();
@@ -46,7 +47,9 @@ Gender: <input type="radio" id="male" value="male" name="gender" checked>
         });
         
     });
-    //if(dup == -1) $('#id').prop("readonly","readonly");
+    if(dup == -1){
+    	checkId = $('#id').val();
+    }
     $('#btnOk').click(function(){
     	if(dup == 0){
     		alert("아이디 중복체크를 하세요.");
@@ -54,6 +57,13 @@ Gender: <input type="radio" id="male" value="male" name="gender" checked>
     	}
     	else if(dup == 1){
     		alert("이미 사용중인 아이디입니다.");
+    		return false;
+    	}
+    	
+    	if(checkId != $('#id').val()){//중복검사 후 id를 바꿔서 가입할 때 안내메세지 출력, dup=0으로 초기화
+    		alert("아이디 중복체크를 하세요.");
+    		dup=0;
+    		console.log(dup);
     		return false;
     	}
     	$('#form').submit();//이걸해야 전송됨
