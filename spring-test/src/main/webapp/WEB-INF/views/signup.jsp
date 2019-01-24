@@ -56,7 +56,7 @@ Gender: <input type="radio" id="male" value="male" name="gender" checked>
     		alert("이미 사용중인 아이디입니다.");
     		return false;
     	}
-    	$('#form').submit();
+    	$('#form').submit();//이걸해야 전송됨
     	return true;
     });
     	
