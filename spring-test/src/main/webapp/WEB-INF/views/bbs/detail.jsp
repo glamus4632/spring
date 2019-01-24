@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,10 +31,11 @@
 	<a href="<%= request.getContextPath() %>/bbs/list">
 		<button class="btn btn-outline-primary" ">목록</button>
 	</a>
-	<a href="<%= request.getContextPath() %>/bbs/list"
-		style="<c:if test="${user != detail.writer}">display:none;</c:if>">
-		<button class="btn btn-outline-primary" ">수정</button>
-	</a>
+	<c:if test="${user.id == detail.writer}">
+		<a href="<%= request.getContextPath() %>/bbs/delete?id=${detail.id}">
+			<button class="btn btn-outline-primary" ">삭제</button>
+		</a>
+	</c:if>
 <script>
 function adjustHeight() {
   var textEle = $('textarea');

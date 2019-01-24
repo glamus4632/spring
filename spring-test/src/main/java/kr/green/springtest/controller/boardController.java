@@ -47,5 +47,12 @@ public class boardController {
 
 		return "bbs/detail";
 	}
-
+	
+	//글삭제 리퀘스트
+	@RequestMapping(value="/bbs/delete")
+	public String deleteGet(Integer id) {
+		System.out.println(id);
+		boardService.delBoard(id);
+		return "redirect:/bbs/list";
+	}
 }

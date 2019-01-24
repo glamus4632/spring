@@ -12,6 +12,10 @@ public interface BoardService {
 
 	public BoardVo getDetail(Integer id);
 
+	public void delBoard(Integer id);
+
+
+
 
 
 }

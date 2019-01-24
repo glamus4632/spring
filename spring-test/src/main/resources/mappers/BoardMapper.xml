@@ -13,4 +13,9 @@
   <select id="getBoard" resultType="kr.green.springtest.vo.BoardVo">
   	select * from board where id=#{id}
   </select>
+  <update id="delBoard">
+  	update board
+  		set state="d"
+  			where id= #{id}
+  </update>
 </mapper>

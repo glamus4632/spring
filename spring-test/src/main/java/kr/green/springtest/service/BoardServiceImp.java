@@ -31,6 +31,13 @@ public class BoardServiceImp implements BoardService{
 		return (BoardVo) boardDao.getBoard(id);
 	}
 
+	@Override
+	public void delBoard(Integer id) {
+		boardDao.delBoard(id);
+	}
+
+
+
 
 
 }
