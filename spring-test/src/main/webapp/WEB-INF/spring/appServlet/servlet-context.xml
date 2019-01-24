@@ -41,7 +41,7 @@
 	    <!-- 로그인 한 인터셉터 -->
 	    <interceptor>
 	        <mapping path="/"/>
-	        <mapping path="/signup"/><!-- 회원가입으로 가려고 하면 게시판으로 -->
+	        <mapping path="/signup"/><!-- 회원이 홈이나 회원가입으로 가려고 하면 게시판으로 -->
 	        <beans:ref bean="unauthInterceptor"/>
 	    </interceptor>
 	</interceptors>
