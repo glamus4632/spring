@@ -11,6 +11,11 @@
 <title>success</title>
 </head>
 <body>
+<c:if test="${user != null}">
+	<a href="<%= request.getContextPath() %>/signout">
+		<button>로그아웃</button>
+	</a>
+</c:if>
 <table class="table table-dark table-hover">
 	<tr>
 		<td class="board-text">작성번호</td>

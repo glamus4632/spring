@@ -21,6 +21,13 @@ public class boardController {
 	@Autowired
 	BoardService boardService;
 	
+	//로그아웃 리퀘스트
+	@RequestMapping(value="/signout")
+	public String signout(Model model, HttpServletRequest request) {//감출것이 없어서 따로 get,post를 정하지 않음
+		HttpSession session = request.getSession();
+		session.removeAttribute("user");
+		return "redirect:/";
+	}
 	//게시판 리스트 리퀘스트
 	@RequestMapping(value="/bbs/list")
 	public String list(Model model) {//감출것이 없어서 따로 get,post를 정하지 않음
