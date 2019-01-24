@@ -46,6 +46,7 @@ Gender: <input type="radio" id="male" value="male" name="gender" checked>
         });
         
     });
+    //if(dup == -1) $('#id').prop("readonly","readonly");
     $('#btnOk').click(function(){
     	if(dup == 0){
     		alert("아이디 중복체크를 하세요.");
@@ -55,10 +56,7 @@ Gender: <input type="radio" id="male" value="male" name="gender" checked>
     		alert("이미 사용중인 아이디입니다.");
     		return false;
     	}
-    	//else if($('#id').val() != "" && dup > 0 ){
-    	//	alert("이미 사용중인 아이디입니다.");
-    	//	return false;
-    	//}
+    	$('#form').submit();
     	return true;
     });
     	

@@ -26,7 +26,8 @@
 		</tr>
 	</c:forEach>
 </table>
-<a href="<%= request.getContextPath() %>/bbs/register">글쓰기</a><br>
-
+<a href="<%= request.getContextPath() %>/bbs/register">
+	<button>글쓰기</button>
+</a>
 </body>
 </html>
