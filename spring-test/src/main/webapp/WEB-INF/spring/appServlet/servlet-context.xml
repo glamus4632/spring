@@ -24,11 +24,25 @@
 	<context:component-scan base-package="kr.green.springtest" />
 	
 	<beans:bean id="loginInterceptor" class="kr.green.springtest.interceptor.LoginInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" class="kr.green.springtest.interceptor.AuthInterceptor"></beans:bean>
+	<beans:bean id="unauthInterceptor" class="kr.green.springtest.interceptor.UnauthInterceptor"></beans:bean>
 	<!-- 클래스는 인터셉터 패키지에 만든 클래스 명을 써야 한다. -->
 	<interceptors>
+		<!-- 로그인 인터셉터 -->
 	    <interceptor>
 	        <mapping path="/"/><!-- 해당 주소로 들어오면 컨트롤러에 가기 전에 얘를 실행하겠다 -->
 	        <beans:ref bean="loginInterceptor"/>
+	    </interceptor>
+	    <!-- 로그인 안한 인터셉터 -->
+	    <interceptor>
+	        <mapping path="/bbs/register"/><!-- 홈화면으로 -->
+	        <beans:ref bean="authInterceptor"/>
+	    </interceptor>
+	    <!-- 로그인 한 인터셉터 -->
+	    <interceptor>
+	        <mapping path="/"/>
+	        <mapping path="/signup"/><!-- 회원가입으로 가려고 하면 게시판으로 -->
+	        <beans:ref bean="unauthInterceptor"/>
 	    </interceptor>
 	</interceptors>
 	
