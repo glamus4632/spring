@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판</title>
+<title>글쓰기</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/bootstrap.css">
 </head>
 <body>

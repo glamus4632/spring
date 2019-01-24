@@ -24,4 +24,13 @@ public class BoardServiceImp implements BoardService{
 		
 	}
 
+	@Override
+	public BoardVo getDetail(Integer id) {
+		if(id == null)
+			return null;
+		return (BoardVo) boardDao.getBoard(id);
+	}
+
+
+
 }

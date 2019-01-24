@@ -10,4 +10,8 @@ public interface BoardService {
 
 	public void registerBoard(BoardVo boardVo);
 
+	public BoardVo getDetail(Integer id);
+
+
+
 }

@@ -20,12 +20,15 @@
 	<c:forEach items="${list}" var="board">
 		<tr class="board-row">
 			<td class="board-number">${ board.id }</td>
-			<td class="board-title" style="width:400px">${ board.title }</td>
+			<td class="board-title" style="width:400px">
+				<a href="<%= request.getContextPath() %>/bbs/detail?id=${board.id}">${ board.title }</a>
+			</td>
 			<td class="board-writer">${ board.writer }</td>
 			<td class="board-date">${ board.registerd_date }</td>
 		</tr>
 	</c:forEach>
 </table>
+
 <a href="<%= request.getContextPath() %>/bbs/register">
 	<button>글쓰기</button>
 </a>
